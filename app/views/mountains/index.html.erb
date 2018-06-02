@@ -19,7 +19,7 @@
       <% @mountains.each do |mountain| %>
       <tr>
         <td><%= mountain.location %></td>
-        <td><%= mountain.route_photo %></td>
+        <td><img src='<%= mountain.route_photo %>' class='img-responsive'></td>
         <td><%= mountain.skier.email %></td>
         <td><%= mountain.name %></td>
         <td>

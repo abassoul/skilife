@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/create_mountain" method="post">
+    <form action="/create_mountain" method="post" enctype="multipart/form-data">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -33,7 +33,7 @@
           Route photo
         </label>
 
-        <input type="text" id="route_photo" name="route_photo" placeholder="Route photo" class="form-control" value="<%= @mountain.route_photo %>">
+        <input type="file" id="route_photo" name="route_photo" class="form-control">
       </div>
 
       <!-- Label and input for skier_id -->

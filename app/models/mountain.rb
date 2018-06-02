@@ -1,4 +1,6 @@
 class Mountain < ApplicationRecord
+  mount_uploader :route_photo, RoutePhotoUploader
+
   # Direct associations
 
   belongs_to :skier,
