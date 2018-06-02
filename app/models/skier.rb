@@ -1,6 +1,10 @@
 class Skier < ApplicationRecord
   # Direct associations
 
+  has_many   :mountain_photos,
+             :class_name => "Mountain",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
