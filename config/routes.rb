@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :skiers
+  # Routes for the Skier resource:
+  # READ
+  get "/skiers", :controller => "skiers", :action => "index"
+  get "/skiers/:id", :controller => "skiers", :action => "show"
+
+
   # Routes for the Mountain resource:
   # CREATE
   get "/mountains/new", :controller => "mountains", :action => "new"
