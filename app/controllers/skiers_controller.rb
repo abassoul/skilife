@@ -1,6 +1,6 @@
 class SkiersController < ApplicationController
   def index
-    @skiers = Skier.all
+    @skiers = Skier.page(params[:page]).per(10)
   end
 
   def show
