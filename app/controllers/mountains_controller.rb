@@ -11,6 +11,11 @@ class MountainsController < ApplicationController
 
   def index
     @mountains = Mountain.all
+    @location_hash = Gmaps4rails.build_markers(@mountains.where.not(:location_latitude => nil)) do |mountain, marker|
+      marker.lat mountain.location_latitude
+      marker.lng mountain.location_longitude
+      marker.infowindow "<h5><a href='/mountains/#{mountain.id}'>#{mountain.created_at}</a></h5><small>#{mountain.location_formatted_address}</small>"
+    end
 
     render("mountains/index.html.erb")
   end
