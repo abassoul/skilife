@@ -1,4 +1,14 @@
 class MountainsController < ApplicationController
+  before_action :current_skier_must_be_mountain_skier, :only => [:edit, :update, :destroy]
+
+  def current_skier_must_be_mountain_skier
+    mountain = Mountain.find(params[:id])
+
+    unless current_skier == mountain.skier
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @mountains = Mountain.all
 

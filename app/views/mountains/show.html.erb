@@ -23,12 +23,14 @@
       <a href="/mountains" class="btn btn-primary">
         Back
       </a>
-      <a href="/mountains/<%= @mountain.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_mountain/<%= @mountain.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_skier == @mountain.skier %>
+        <a href="/mountains/<%= @mountain.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_mountain/<%= @mountain.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

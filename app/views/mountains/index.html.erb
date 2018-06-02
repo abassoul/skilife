@@ -24,8 +24,11 @@
         <td><%= mountain.name %></td>
         <td>
           <a href="/mountains/<%= mountain.id %>" class="btn btn-primary">Show</a>
-          <a href="/mountains/<%= mountain.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_mountain/<%= mountain.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_skier == mountain.skier %>
+            <a href="/mountains/<%= mountain.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_mountain/<%= mountain.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
