@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "mountains#index"
   devise_for :skiers
   # Routes for the Skier resource:
   # READ
