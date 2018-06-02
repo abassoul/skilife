@@ -16,7 +16,13 @@
       <dd><img src="<%= @mountain.route_photo %>" class="img-responsive"></dd>
 
       <dt>Skier</dt>
-      <dd><%= @mountain.skier_id %></dd>
+      <dd>
+        <% if @mountain.skier.present? %>
+          <a href="/skiers/<%= @mountain.skier_id %>">
+            <%= @mountain.skier.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Name</dt>
       <dd><%= @mountain.name %></dd>

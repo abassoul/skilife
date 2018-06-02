@@ -29,7 +29,13 @@
       <tr>
         <td><%= mountain.location %></td>
         <td><img src='<%= mountain.route_photo %>' class='img-responsive'></td>
-        <td><%= mountain.skier.email %></td>
+        <td>
+          <% if mountain.skier.present? %>
+            <a href="/skiers/<%= mountain.skier.id %>">
+              <%= mountain.skier.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= mountain.name %></td>
         <td>
           <a href="/mountains/<%= mountain.id %>" class="btn btn-primary">Show</a>
