@@ -10,7 +10,8 @@ class MountainsController < ApplicationController
   end
 
   def index
-    @mountains = Mountain.page(params[:page]).per(10)
+    @q = Mountain.ransack(params[:q])
+    @mountains = @q.result(:distinct => true).includes(:skier).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@mountains.where.not(:location_latitude => nil)) do |mountain, marker|
       marker.lat mountain.location_latitude
       marker.lng mountain.location_longitude
