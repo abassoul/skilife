@@ -9,6 +9,18 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+  <%= f.label :avalanche_danger, "Avalanche danger" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :avalanche_danger_gteq, :class => "form-control", :placeholder => "Avalanche danger greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :avalanche_danger_lteq, :class => "form-control", :placeholder => "Avalanche danger less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
     <%= f.label :name_cont, "Name contains" %>
     <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
   </div>
@@ -82,16 +94,15 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Location</th>
-        <th>Route photo</th>
         <th>Skier</th>
         <th>Name</th>
+        <th>Avalanche danger</th>
         <th>Actions</th>
       </tr>
 
       <% @mountains.each do |mountain| %>
       <tr>
         <td><%= mountain.location %></td>
-        <td><img src='<%= mountain.route_photo %>' class='img-responsive'></td>
         <td>
           <% if mountain.skier.present? %>
             <a href="/skiers/<%= mountain.skier.id %>">
@@ -100,6 +111,7 @@
           <% end %>
         </td>
         <td><%= mountain.name %></td>
+        <td><%= mountain.avalanche_danger %></td>
         <td>
           <a href="/mountains/<%= mountain.id %>" class="btn btn-primary">Show</a>
           
