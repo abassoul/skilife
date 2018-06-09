@@ -12,9 +12,6 @@
         </div>
       </dd>
 
-      <dt>Route photo</dt>
-      <dd><img src="<%= @mountain.route_photo %>" class="img-responsive"></dd>
-
       <dt>Skier</dt>
       <dd>
         <% if @mountain.skier.present? %>
@@ -26,6 +23,9 @@
 
       <dt>Name</dt>
       <dd><%= @mountain.name %></dd>
+
+      <dt>Avalanche danger</dt>
+      <dd><%= @mountain.avalanche_danger %></dd>
 
     </dl>
 

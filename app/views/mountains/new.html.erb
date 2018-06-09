@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/create_mountain" method="post" enctype="multipart/form-data">
+    <form action="/create_mountain" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -27,15 +27,6 @@
         <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @mountain.location %>">
       </div>
 
-      <!-- Label and input for route_photo -->
-      <div class="form-group">
-        <label for="route_photo" class="control-label">
-          Route photo
-        </label>
-
-        <input type="file" id="route_photo" name="route_photo" class="form-control">
-      </div>
-
       <!-- Label and input for skier_id -->
       <input type="hidden" name="skier_id" value="<%= current_skier.id %>">
 
@@ -46,6 +37,15 @@
         </label>
 
         <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @mountain.name %>">
+      </div>
+
+      <!-- Label and input for avalanche_danger -->
+      <div class="form-group">
+        <label for="avalanche_danger" class="control-label">
+          Avalanche danger
+        </label>
+
+        <input type="text" id="avalanche_danger" name="avalanche_danger" placeholder="Avalanche danger" class="form-control" value="<%= @mountain.avalanche_danger %>">
       </div>
 
       <button class="btn btn-success">

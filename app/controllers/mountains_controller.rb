@@ -37,9 +37,9 @@ class MountainsController < ApplicationController
     @mountain = Mountain.new
 
     @mountain.location = params[:location]
-    @mountain.route_photo = params[:route_photo]
     @mountain.skier_id = params[:skier_id]
     @mountain.name = params[:name]
+    @mountain.avalanche_danger = params[:avalanche_danger]
 
     save_status = @mountain.save
 
@@ -67,9 +67,9 @@ class MountainsController < ApplicationController
     @mountain = Mountain.find(params[:id])
 
     @mountain.location = params[:location]
-    @mountain.route_photo = params[:route_photo]
     @mountain.skier_id = params[:skier_id]
     @mountain.name = params[:name]
+    @mountain.avalanche_danger = params[:avalanche_danger]
 
     save_status = @mountain.save
 

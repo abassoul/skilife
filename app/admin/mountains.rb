@@ -1,6 +1,6 @@
 ActiveAdmin.register Mountain do
 
- permit_params :location, :route_photo, :skier_id, :name
+ permit_params :location, :skier_id, :name, :avalanche_danger
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
